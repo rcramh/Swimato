@@ -1,0 +1,26 @@
+{
+  "name": "swiggy_clone",
+  "version": "1.0.0",
+  "description": "creating swiggy clone from scratch",
+  "main": " ",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "yes"
+  },
+  "keywords": [
+    "react",
+    "swiggy"
+  ],
+  "author": "Rahul",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.9.2"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
