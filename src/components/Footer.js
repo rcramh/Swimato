@@ -2,7 +2,14 @@ import React from "react";
 
 function Footer(){
     return (
-        <h1>Hello i'm Footer</h1>
+        <div class = "footer">
+            <h2>Swimato</h2>
+            <h3>Made with love by RC</h3>
+            <h3>Github</h3>
+            <h3>LinkedIN</h3>
+            <h3>Portfolio</h3>
+
+        </div>
     );
 }
 

@@ -1,9 +1,17 @@
 import React from "react";
+import Header from "./Header";
+import Footer from "./Footer";
+
 
 function Home(){
     return (
-        <h1>Hello, Welcome to Swimato Home page</h1>
+        <div>
+            <Header/>
+            <h1>Hello, Welcome to Swimato Home page</h1>
+            <Footer/>
+        </div>
     );
 }
 
 export default Home;
+
