@@ -23,14 +23,26 @@ function Home(){
       json = await data.json();
         
       setListOfRestraunt(json?.data?.cards[2]?.data?.data?.cards);
+      setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards);
       
     };
   
     console.log(listOfRestaurants);
     
-    function filterRestaurant(event)
+    function filterRestaurant()
     {
+      const searched_rest = listOfRestaurants.filter((res) =>
+                res.data.name.toLowerCase().includes(searchText.toLowerCase())
+              );
+      setListOfRestraunt(searched_rest);
+    }
 
+    function topRatedRestuarants()
+    {
+      const searched_rest = listOfRestaurants.filter((res) =>
+              res.data.avgRating > 4
+              );
+      setListOfRestraunt(searched_rest);
     }
 
     return (!listOfRestaurants) ? <Shimmer /> :
@@ -48,6 +60,10 @@ function Home(){
 
             <button onClick={filterRestaurant}>Search</button>
 
+        </div>
+
+        <div>
+        <button onClick={topRatedRestuarants}>Top Rated Restaurants</button>
         </div>
         
 
