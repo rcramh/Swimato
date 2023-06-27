@@ -27,6 +27,7 @@
     width: 300px;
     height: 400px;
     margin:5px;
+    text-decoration: none !important;
   }
 
   .card img {
@@ -56,9 +57,20 @@
     background-color: #f0f0f0;
   }
 
+  .link {
+    color: black;
+    text-decoration: none;
+  }
+  .link:hover {
+     color: darkorange;
+  }
+
   .search{
+    display : flex;
+    flex-wrap: wrap;
     background-color: antiquewhite;
-    justify-content: center;
+    padding : 10px;
+    justify-content: space-between;
   }
 
   .search input{
@@ -67,7 +79,7 @@
   }
 
   .search h2{
-   text-align: center;
+   text-align: left;
   }
 
 

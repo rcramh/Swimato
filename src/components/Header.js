@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 import { Link } from 'react-router-dom';
-import App_logo from "../Assets/app_logo.png"
+import App_logo from "../Assets/app_logo.png";
+import useOnlineStatus from "../utils/useOnlineStatus";
+
 
 
 function Header(){
@@ -15,12 +17,15 @@ function Header(){
 
     }
 
+    const onlineSatus = useOnlineStatus();
+
     return (
         <div class = "navbar">
-            <img class = "logo" src={App_logo} alt="swimato_logo"></img>
-            <Link to="/"><h2>Home</h2></Link>
-            <Link to="/about"><h2>About</h2></Link>
-            <Link to="/contact"><h2>Contact</h2></Link>
+            <Link to="/" className="link"><img class = "logo" src={App_logo} alt="swimato_logo"></img></Link>
+            <Link to="/" className="link"><h2>Home</h2></Link>
+            <Link to="/about" className="link"><h2>About</h2></Link>
+            <Link to="/contact" className="link"><h2>Contact</h2></Link>
+            {onlineSatus ? <h2>Online ✅</h2> : <h2>Offline 🔴</h2>}
             <button onClick={setStatus} >{loginButton}</button>
         </div>
         
