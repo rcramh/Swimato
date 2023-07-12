@@ -29,7 +29,7 @@ function Home(){
     
     const onlineStatus = useOnlineStatus();
 
-    console.log(onlineStatus);
+    //console.log(onlineStatus);
     if (onlineStatus === false)
     return (
       <h1>
