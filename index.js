@@ -4,8 +4,9 @@ import ReactDOM from "react-dom";
 import Header from "./src/components/Header";
 //import Footer from "./src/components/Footer";
 import Home from "./src/components/Home";
-//import About from "./src/components/About";
-//import Contact from "./src/components/Contact";
+import About from "./src/components/About";
+import Contact from "./src/components/Contact";
+import Cart from "./src/components/Cart";
 import Login from "./src/components/Login";
 import Error from "./src/components/Error";
 import RestaurantMenu from "./src/utils/RestaurantMenu";
@@ -45,6 +46,10 @@ const router = createBrowserRouter(
                 {
                     path : "/contact",
                     element : (<Suspense fallback={<h1>Loading...</h1>} > <Contact /></Suspense>),
+                },
+                {
+                    path : "/cart",
+                    element : <Cart />,
                 },
                 {
                     path : "/login",

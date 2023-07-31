@@ -21,12 +21,15 @@ function Home(){
       );
   
        json = await data.json();
-        
-      setListOfRestraunt(json?.data?.cards[2]?.data?.data?.cards);
-      setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards);
-      
+
+       setListOfRestraunt(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+       setFilteredRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+
+      //old swiggy api code
+      //setFilteredRestaurants(json?.data?.cards[2]?.data?.data?.cards);
+      //data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants[0]?.info?.name
     };
-    
+
     const onlineStatus = useOnlineStatus();
 
     //console.log(onlineStatus);
@@ -40,7 +43,7 @@ function Home(){
     function filterRestaurant()
     {
       const searched_rest = listOfRestaurants.filter((res) =>
-                res.data.name.toLowerCase().includes(searchText.toLowerCase())
+                res.info.name.toLowerCase().includes(searchText.toLowerCase())
               );
       setFilteredRestaurants(searched_rest);
     }
@@ -48,7 +51,7 @@ function Home(){
     function topRatedRestuarants()
     {
       const searched_rest = listOfRestaurants.filter((res) =>
-              res.data.avgRating > 4
+              res.info.avgRating > 4
               );
       setFilteredRestaurants(searched_rest);
     }
@@ -82,11 +85,11 @@ function Home(){
           filteredRestaurants.map( (restaurantDoc) => (
             <Link 
             className="link"
-            key={restaurantDoc.data.id}
-            to={"/restaurants/" + restaurantDoc.data.id}
+            key={restaurantDoc.info.id}
+            to={"/restaurants/" + restaurantDoc.info.id}
             > 
                 <RestaurantCard res_data = {restaurantDoc} />
-             </Link>
+            </Link>
           ))
         }
       </div>

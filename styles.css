@@ -87,3 +87,51 @@
   .search button{
     height : 28px;
   }
+
+
+  .resMenu{
+  text-align : center;
+  }
+
+  .resMenu ul{
+  display: inline-block;
+  flex-direction: column;
+}
+  .resMenu li{
+    list-style-type: none;
+    display : inline-flex;
+    justify-content : space-between;
+    width : 450px;
+    height : 60px;
+    padding : 10px;
+    margin : 10px;
+    border : 5px;
+    box-shadow: 10px 10px 5px 0px rgba(122,117,116,0.75);
+    text-align : left;
+    font-size: 22px;
+}
+
+.dishDetails{
+    padding : 10px;
+    margin : 10px;
+    font-weight: 550;
+}
+.dishAdd{
+    /*align-self: flex-end; */
+    width : 90px;
+    height : 60px;
+    padding : 5px;
+    margin : 5px;
+}
+
+.dishAdd button{
+    color: #60B246;
+    font : 13px;
+    width : 70px;
+    height : 38px;
+    font-size: 18px;
+    background-color : white;
+    border-radius: 5px;
+    border: 2px solid #E8E8E8;
+}
+

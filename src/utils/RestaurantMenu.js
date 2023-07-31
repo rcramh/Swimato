@@ -1,13 +1,10 @@
 import React,{useState,useEffect} from "react";
 import { Link, useParams } from "react-router-dom";
 
-
-
 function RestaurantMenu(){
 
     const [restName , setRestName] = useState("");
     const [restDetail , setRestDetail] = useState([]);
-
 
     //get the dynamic resId (route param)
     const { resId } = useParams();
@@ -29,20 +26,22 @@ function RestaurantMenu(){
     };
     //json?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[9]?.card?.card?.name
     //console.log(restDetail);
-    
-
 
 
     return (
-      <div>
+      <div className="resMenu">
         <h1> {restName} </h1>
         <h2>Menu</h2>
         <ul>
         {restDetail.map((item) => (
           <li key={item.card.info.id}>
-            {item.card.info.name} -{" Rs."}
-            {item.card.info.price / 100 || item.card.info.defaultPrice / 100}
-            <button>+</button>
+              <div className="dishDetails">
+                {item.card.info.name} -{" Rs."}
+                {item.card.info.price / 100 || item.card.info.defaultPrice / 100}
+              </div>
+              <div className="dishAdd">
+                <button>ADD</button>
+              </div>
           </li>
         ))}
       </ul>
