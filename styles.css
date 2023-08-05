@@ -35,14 +35,36 @@
     padding : 10%;
   }
 
+  .card h2 {
+    margin: 5px;
+    padding : 5px;
+  }
+
   .card span {
     width: 40px;
-    background-color: #48c479;
+    margin: 10px;
+    padding : 5px;
+    background-color: #faf0f0;
+  }
+
+  .card p {
+    margin: 5px;
+    padding : 5px;
   }
   
   .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   }
+
+  .card label {
+    position: absolute;
+    background-color: #48c479;
+    margin: 25px;
+    padding : 5px;
+    height : 40px;
+
+  }
+
 
 
   .shimmer-container{
@@ -68,15 +90,16 @@
   .search{
     display : flex;
     flex-wrap: wrap;
-    background-color: antiquewhite;
+    background-color: #faf0f0;
     padding : 10px;
+    margin : 10px;
     justify-content: space-between;
     align-items: center;
   }
 
   .search input{
-    width : 200px;
-    height : 25px;
+    width : 250px;
+    height : 28px;
   }
 
   .search h2{
@@ -85,7 +108,7 @@
 
 
   .search button{
-    height : 28px;
+    height : 32px;
   }
 
 

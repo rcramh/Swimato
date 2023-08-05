@@ -1,22 +1,22 @@
 import React, {lazy, Suspense} from "react";
 import ReactDOM from "react-dom";
-//import App from "./src/components/App";
 import Header from "./src/components/Header";
-//import Footer from "./src/components/Footer";
 import Home from "./src/components/Home";
-import About from "./src/components/About";
-import Contact from "./src/components/Contact";
-import Cart from "./src/components/Cart";
 import Login from "./src/components/Login";
 import Error from "./src/components/Error";
 import RestaurantMenu from "./src/utils/RestaurantMenu";
+//import About from "./src/components/About";
+//import Contact from "./src/components/Contact";
+//import Cart from "./src/components/Cart";
 
 import { createBrowserRouter, RouterProvider, Outlet} from "react-router-dom";
 
 
+//Lazy loading : On demand loading of the components
 const About = lazy( () => import("./src/components/About.js") );
 const Contact = lazy( () => import("./src/components/Contact.js") );
-//doubt it's working properly or not
+const Cart = lazy( () => import("./src/components/Cart.js") );
+
 
 const AppLayout = () => {
     return (
@@ -49,7 +49,7 @@ const router = createBrowserRouter(
                 },
                 {
                     path : "/cart",
-                    element : <Cart />,
+                    element : (<Suspense fallback={<h1>Loading...</h1>} > <Cart /></Suspense>),
                 },
                 {
                     path : "/login",

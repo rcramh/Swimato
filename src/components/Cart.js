@@ -1,6 +1,6 @@
 import React from "react";
 import { useContext, useState } from 'react';
-import userContext from "../utils/userContext"
+import userContext from "../utils/UserContext"
 
 function Cart(){
 

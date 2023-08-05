@@ -1,15 +1,17 @@
 import React,{useState,useEffect} from "react";
 import { Link } from 'react-router-dom';
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, {withPromotedLabel}  from "./RestaurantCard";
 import Shimmer from "./Shimmer";
 import useOnlineStatus from "../utils/useOnlineStatus";
 
 
 function Home(){
 
-    const [listOfRestaurants, setListOfRestraunt] = useState([]);
+    const [listOfRestaurants, setListOfRestaurant] = useState([]);
     const [filteredRestaurants, setFilteredRestaurants] = useState([]);
     const [searchText, setSearchText] = useState("");
+
+    const VegRestaurantCard = withPromotedLabel(RestaurantCard);
 
     useEffect(() => {
         fetchData();
@@ -22,7 +24,7 @@ function Home(){
   
        json = await data.json();
 
-       setListOfRestraunt(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+       setListOfRestaurant(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
        setFilteredRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
 
       //old swiggy api code
@@ -59,7 +61,6 @@ function Home(){
     return (listOfRestaurants.length === 0) ? <Shimmer /> :
     (<div className = "Home">
         <div className="search">
-            <h2>Order Food Online From Your Favourite Restaurants</h2>
 
             <div>
               <input 
@@ -70,7 +71,7 @@ function Home(){
                 value={searchText}
                 onChange={(event)=> setSearchText(event.target.value)} 
               />
-              <button onClick={filterRestaurant}>Search</button>
+              <button onClick={filterRestaurant}><b>Search</b></button>
             </div>
 
             <div>
@@ -87,8 +88,12 @@ function Home(){
             className="link"
             key={restaurantDoc.info.id}
             to={"/restaurants/" + restaurantDoc.info.id}
-            > 
-                <RestaurantCard res_data = {restaurantDoc} />
+            >
+
+            { (restaurantDoc.info.veg) ? (<VegRestaurantCard res_data = {restaurantDoc} />) :
+                                            (<RestaurantCard res_data = {restaurantDoc} />)
+            }
+
             </Link>
           ))
         }

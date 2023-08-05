@@ -8,12 +8,24 @@ function RestaurantCard(props){
     
     return (
         <div className="card">
-            <img src={resImg} alt="shriji_logo" ></img>
+            <img src={resImg} alt="Res_logo" ></img>
             <h2><b>{name}</b></h2> 
             <span> {avgRating}★</span>
             <p>RS.{costForTwo} </p>
         </div>
     );
+}
+
+export function withPromotedLabel(RestaurantCard){
+
+    return (props) => {
+        return (
+        <div className="card">
+            <label><h3>Veg</h3></label>
+            <RestaurantCard {...props}/>
+        </div>
+    );
+    };
 }
 
 export default RestaurantCard;
