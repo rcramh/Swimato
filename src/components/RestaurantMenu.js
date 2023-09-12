@@ -1,5 +1,10 @@
 import React,{useState,useEffect} from "react";
 import { Link, useParams } from "react-router-dom";
+import { addItem } from "../utils/cartSlice";
+import { useDispatch } from "react-redux";
+
+import { useSelector } from "react-redux";
+
 
 function RestaurantMenu(){
 
@@ -8,6 +13,17 @@ function RestaurantMenu(){
 
     //get the dynamic resId (route param)
     const { resId } = useParams();
+
+    //updating to the slice of the store
+    const dispatch = useDispatch();
+
+    const handleAddItem = (item) => {
+      // Dispatch an action
+      dispatch(addItem(item));
+    };
+
+    const cartItems = useSelector((store) => store.cart.items);
+    console.log(cartItems);
 
     useEffect(() => {
         fetchData();
@@ -40,7 +56,9 @@ function RestaurantMenu(){
                 {item.card.info.price / 100 || item.card.info.defaultPrice / 100}
               </div>
               <div className="dishAdd">
-                <button>ADD</button>
+                <button onClick = {() => handleAddItem(item)}>
+                  ADD +
+                </button>
               </div>
           </li>
         ))}

@@ -158,3 +158,22 @@
     border: 2px solid #E8E8E8;
 }
 
+
+.clearCart{
+  /*align-self: flex-end; */
+  width : 90px;
+  height : 60px;
+  padding : 5px;
+  margin : 5px;
+}
+
+.clearCart button{
+  color: white;
+  font : 13px;
+  width : 120px;
+  height : 38px;
+  font-size: 18px;
+  background-color : #428299;
+  border-radius: 5px;
+  border: 2px solid #E8E8E8;
+}
